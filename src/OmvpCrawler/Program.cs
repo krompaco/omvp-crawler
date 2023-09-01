@@ -1,10 +1,7 @@
-﻿using System.Drawing.Text;
-using OmvpCrawler;
+﻿using OmvpCrawler;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Support.UI;
 using Spectre.Console;
-using Spectre.Console.Rendering;
 
 var chromeOptions = new ChromeOptions();
 
@@ -74,8 +71,6 @@ foreach (var url in profileUrls)
     }
 }
 
-grid = new Grid();
-grid.AddColumn();
 var sitesToAdd = new List<string>();
 
 foreach (var url in firstBlogPostUrls.OrderBy(x => x.Host))
@@ -85,14 +80,18 @@ foreach (var url in firstBlogPostUrls.OrderBy(x => x.Host))
     if (!sitesToAdd.Contains(siteToAdd))
     {
         sitesToAdd.Add(siteToAdd);
-        grid.AddRow(siteToAdd);
     }
 }
 
+grid = new Grid();
+grid.AddColumn();
 grid.AddRow(new Text($"Blog post URLs found: {firstBlogPostUrls.Count} / Unique: {sitesToAdd.Count}", new Style(Color.Yellow, Color.Black)).LeftJustified());
+
+foreach (var siteToAdd in sitesToAdd)
+{
+    grid.AddRow(siteToAdd);
+}
 
 AnsiConsole.WriteLine();
 AnsiConsole.Write(grid);
-AnsiConsole.WriteLine();
-
 AnsiConsole.WriteLine();
