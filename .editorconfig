@@ -1,0 +1,10 @@
+root = true
+
+[*]
+trim_trailing_whitespace = true
+indent_style = space
+insert_final_newline = true
+
+[*.{html,htm,css,js,json,txt,php,xml,config,cshtml,aspx,ascx}]
+indent_style = tab
+end_of_line = lf
