@@ -94,4 +94,3 @@ foreach (var siteToAdd in sitesToAdd)
 
 AnsiConsole.WriteLine();
 AnsiConsole.Write(grid);
-AnsiConsole.WriteLine();
