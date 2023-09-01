@@ -4,3 +4,4 @@ _ReSharper.Caches/
 *.csproj.user
 bin
 obj
+src/OmvpCrawler/*.html
